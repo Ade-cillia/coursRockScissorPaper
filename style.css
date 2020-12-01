@@ -10,15 +10,19 @@ input{
     margin-right: 20px;
     margin-left: 20px;
 }
-img{
-    width: 20%;
-    height: 20%;
-    cursor: pointer;
-}
+
 
 .flex{
     display: flex;
 }
+
+.Status{
+    width: 100%;
+    height: 50px;
+}
+
+
+
 .divbutton{
     width: 100%;
     height: 200px;
@@ -50,6 +54,7 @@ img{
     width: 300px;
     height: 300px;
     cursor: pointer;
+    border: none;
 }
 .rock:hover{
     background: url('image/rockHover.png') no-repeat;
@@ -62,6 +67,7 @@ img{
     width: 300px;
     height: 300px;
     cursor: pointer;
+    border: none;
 }
 .scissors:hover{
     background: url('image/scissorsHover.png') no-repeat;
@@ -71,7 +77,8 @@ img{
     width: 300px;
     height: 300px;
     cursor: pointer;
+    border: none;
 }
 .paper:hover{
-    background: url('image/paper.png') no-repeat;
+    background: url('image/paperHover.png') no-repeat;
 }
