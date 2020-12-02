@@ -1,11 +1,11 @@
-let myColor;
+let myColor;  //Change Background Color
 let playArray = ['','rock', 'scissors', 'paper'];
 let totalRound = 5;
 let actualRound = 0;
 let numberWin = 0;
 let choiceBot;
 let choicePlayer;
-let gameStatus = 'Start';
+let gameStatus = 'Start';   //For algo
 let roundStatus = 'Start';
 
 function roundStart(){
@@ -67,12 +67,15 @@ function showBotImage() {
             imageResult.setAttribute("src", 'image/paper.png');
         }
     }
-    result.append(imageResult);
+    result.prepend(imageResult);
 
 };
 
 function nextRound(){
+    if (actualRound >= totalRound) {
+        gameStatus = 'End'
 
+    }
     actualRound +=1;
     document.querySelector('#showActualRound').innerHTML = actualRound  // On Actualise les scores
     document.querySelector('#showNumberWin').innerHTML = numberWin
@@ -98,6 +101,7 @@ document.getElementById("opacityButton").addEventListener('input', () => {
     //console.log(opacityRange);
     console.log(colorMatch);
     main.style.backgroundColor = `rgba(${colorMatch[0]}, ${colorMatch[1]}, ${colorMatch[2]}, ${opacity})`;
+
 });
 document.getElementById('sizeButton').addEventListener('input', () => {
     let sizeImage = document.getElementById('sizeButton').value;
@@ -115,13 +119,20 @@ document.querySelector('#showNumberWin').innerHTML = numberWin
 
 document.querySelector('.rock').addEventListener('click', () => {
     choicePlayer = 'rock'
-    roundStart();
+    if (gameStatus == 'Start'){
+        roundStart();
+    }
+
 });
 document.querySelector('.scissors').addEventListener('click', () => {
     choicePlayer = 'scissors'
-    roundStart();
+    if (gameStatus == 'Start'){
+        roundStart();
+    }
 });
 document.querySelector('.paper').addEventListener('click', () => {
     choicePlayer = 'paper'
-    roundStart();
+    if (gameStatus == 'Start'){
+        roundStart();
+    }
 });
