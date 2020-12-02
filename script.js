@@ -1,11 +1,86 @@
 let myColor;
 let playArray = ['','rock', 'scissors', 'paper'];
 let totalRound = 5;
-let actualRound = 1;
+let actualRound = 0;
+let numberWin = 0;
 let choiceBot;
 let choicePlayer;
 let gameStatus = 'Start';
 let roundStatus = 'Start';
+
+function roundStart(){
+        console.log(actualRound)
+        choiceBot = Math.floor(Math.random()* Math.floor(3))+1
+        choiceBot = playArray[choiceBot];
+        console.log(choiceBot)
+
+
+        if (choiceBot==choicePlayer){
+            roundStatus = 'ex-aequo,';
+        }
+        else if ((choicePlayer == 'rock' && choiceBot == 'scissors') || (choicePlayer == 'scissors' && choiceBot == 'paper') || (choicePlayer == 'paper' && choiceBot == 'rock') ){
+            roundStatus = 'Win';
+            numberWin += 1
+        }
+        else{
+            roundStatus = 'Lost';
+        }
+        console.log(roundStatus)
+        showBotImage();
+        nextRound();
+};
+
+function showBotImage() {
+
+    let result = document.querySelector('.result');
+    let imageResult = document.createElement('IMG');
+    if (choiceBot=='rock'){
+        if (roundStatus=='Win'){
+            imageResult.setAttribute("src", 'image/rockWin.png');
+        }
+        else if (roundStatus=='Lost') {
+            imageResult.setAttribute("src", 'image/rockLost.png');
+        }
+        else {
+            imageResult.setAttribute("src", 'image/rock.png');
+        }
+    }
+    else if (choiceBot=='scissors') {
+        if (roundStatus=='Win'){
+            imageResult.setAttribute("src", 'image/scissorsWin.png');
+        }
+        else if (roundStatus=='Lost') {
+            imageResult.setAttribute("src", 'image/scissorsLost.png');
+        }
+        else {
+            imageResult.setAttribute("src", 'image/scissors.png');
+        }
+    }
+    else {
+        if (roundStatus=='Win'){
+            imageResult.setAttribute("src", 'image/paperWin.png');
+        }
+        else if (roundStatus=='Lost') {
+            imageResult.setAttribute("src", 'image/paperLost.png');
+        }
+        else {
+            imageResult.setAttribute("src", 'image/paper.png');
+        }
+    }
+    result.append(imageResult);
+
+};
+
+function nextRound(){
+
+    actualRound +=1;
+    document.querySelector('#showActualRound').innerHTML = actualRound  // On Actualise les scores
+    document.querySelector('#showNumberWin').innerHTML = numberWin
+
+};
+
+
+
 document.getElementById('colorButton').addEventListener('input', () => {
     let myColor = document.getElementById('colorButton').value;
     //console.log(myColor)
@@ -31,31 +106,13 @@ document.getElementById('sizeButton').addEventListener('input', () => {
 });
 
 
-function roundStart(){
-        console.log(actualRound)
-        choiceBot = Math.floor(Math.random()* Math.floor(3))+1
-        choiceBot = playArray[choiceBot];
-        console.log(choiceBot)
 
-        if (choiceBot==choicePlayer){
-            roundStatus = 'ex-aequo,';
-        }
-        else if ((choicePlayer == 'rock' && choiceBot == 'scissors') || (choicePlayer == 'scissors' && choiceBot == 'paper') || (choicePlayer == 'paper' && choiceBot == 'rock') ){
-            roundStatus = 'Win';
-        }
-        else{
-            roundStatus = 'Lost';
-        }
-        console.log(roundStatus)
-        nextRound();
-};
 
-function nextRound(){
+document.querySelector('#showActualRound').innerHTML = actualRound
+document.querySelector('#showTotalRound').innerHTML = totalRound
+document.querySelector('#showNumberWin').innerHTML = numberWin
 
-    actualRound +=1;
 
-};
-document.querySelector('#')
 document.querySelector('.rock').addEventListener('click', () => {
     choicePlayer = 'rock'
     roundStart();

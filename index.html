@@ -7,8 +7,9 @@
     </head>
     <body>
         <main style="background-color: #25f47f;" id="main">
-            <div class="Status">
-                <p>Round actuel : <span id='showActualRound'></span>/<span id='showTotalRound'></span></p>
+            <div class="status">
+                <p>Round Effectuée : <span id='showActualRound'></span>/<span id='showTotalRound'></span></p>
+                <p>Nombre de Round gagnée : <span id="showNumberWin"></span></p>
             </div>
             <div>
                 <div class="divbutton flex">
@@ -16,7 +17,6 @@
                     <input class="button" id="colorButton" type="color" value="#25f47f"><br>
                     <input class="button" id="opacityButton" type="range" min="0" max="1" step="0.1" value="0.5"><br>
                 </div>
-
                 <div class="divbuttonIMG flex">
                     <p>Taille des images :</p>
                     <input class="button" id="sizeButton" type="range" min="60" max="100" step="10" value="100">
@@ -29,9 +29,9 @@
                     <input class="scissors" type="button" name="scissors">
                     <input class="paper" type="button" name="paper">
                 </div>
-
             </div>
-
+            <div class="result">
+            </div>
 
             <script src="script.js" charset="utf-8"></script>
         </main>
