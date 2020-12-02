@@ -10,7 +10,8 @@
             <div class="status">
                 <p>Round Effectuée : <span id='showActualRound'></span>/<span id='showTotalRound'></span></p>
                 <p>Nombre de Round gagnée : <span id="showNumberWin"></span></p>
-                <p>Nombre d'Egalité : </p>
+                <p>Nombre de Round perdu : <span id="showNumberLost"></span></p>
+                <p>Nombre d'Egalité : <span id="showNumberExAequo"></span></p>
                 <div class="divbuttonOnScrean flex">
                     <div class="divbutton flex">
                         <p>Change the color ! :   </p><br>
@@ -23,7 +24,7 @@
             <div>
                 <div class="divbuttonIMG flex">
                     <p>Taille des images :</p>
-                    <input class="button" id="sizeButton" type="range" min="60" max="100" step="10" value="100">
+                    <input class="button" id="sizeButton" type="range" min="60" max="100" step="1" value="100">
                 </div>
             </div>
 
@@ -40,7 +41,6 @@
             <div class="result">
 
             </div>
-
             <script src="script.js" charset="utf-8"></script>
         </main>
     </body>
