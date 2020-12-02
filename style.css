@@ -22,17 +22,25 @@ input{
 
 }
 
-
-
+.divbuttonOnScrean{
+    justify-content: flex-end;
+}
 .divbutton{
-    height: 200px;
-    justify-content: center;
+    position: absolute;
+    top: 0;
     align-items: center;
     margin-left: 20px;
-    margin-right: 20px;
+
 }
+.RusltText{
+    height: 150px;
+}
+
+
+
+
 .divbuttonIMG{
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     padding-bottom: 50px;
 }
@@ -83,7 +91,10 @@ input{
     background: url('image/paperHover.png') no-repeat;
 }
 
-
+.RusltText{
+    justify-content: center
+    
+}
 .result{
     height: auto;
 }

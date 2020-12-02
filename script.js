@@ -3,6 +3,7 @@ let playArray = ['','rock', 'scissors', 'paper'];
 let totalRound = 5;
 let actualRound = 0;
 let numberWin = 0;
+let numberLost = 0;
 let choiceBot;
 let choicePlayer;
 let gameStatus = 'Start';   //For algo
@@ -20,10 +21,13 @@ function roundStart(){
         }
         else if ((choicePlayer == 'rock' && choiceBot == 'scissors') || (choicePlayer == 'scissors' && choiceBot == 'paper') || (choicePlayer == 'paper' && choiceBot == 'rock') ){
             roundStatus = 'Win';
-            numberWin += 1
+            numberWin += 1;
+            actualRound +=1;
         }
         else{
             roundStatus = 'Lost';
+            numberLost += 1;
+            actualRound +=1;
         }
         console.log(roundStatus)
         showBotImage();
@@ -74,9 +78,17 @@ function showBotImage() {
 function nextRound(){
     if (actualRound >= totalRound) {
         gameStatus = 'End'
-
     }
-    actualRound +=1;
+    if (numberWin >= totalRound/2){
+        gameStatus ='Win'
+        document.querySelector('.RusltText').innerHTML = "BRAVO ! Vous avez Gagné la majorité absolue des rounds"
+    }
+    else if (numberLost >= totalRound/2) {
+            gameStatus ='Lost'
+            document.querySelector('.RusltText').innerHTML = "PERDU !  Votre Ennemie à gagner la majoriter des rounds"
+        }
+
+
     document.querySelector('#showActualRound').innerHTML = actualRound  // On Actualise les scores
     document.querySelector('#showNumberWin').innerHTML = numberWin
 
